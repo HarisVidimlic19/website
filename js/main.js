@@ -40,9 +40,31 @@
 	// Scrollax
    $.Scrollax();
 
+	// Scraper for Phys.org
+	var scraper = async function() {
+	const url = 'https://phys.org/physics-news/sort/popular/1w/';
+	// const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+	const proxyUrl = 'https://proxy-server-gspl.onrender.com/'
+	const response = await fetch(proxyUrl + url);
+	const htmlString = await response.text();
+	const parser = new DOMParser();
+	const doc = parser.parseFromString(htmlString, 'text/html');
+	const container = doc.querySelector('.sorted-news-list');
+	
+	$("#sidebar").html(container);
+	console.log("Phys.org Scraped");
+	console.log(container);
+
+	// var html = '';
+	// $.each(data, function(index, value) {
+	// 	html += '<div>' + value + '</div>';
+	// });
+	// $('#sidebar').html(html);
+	};
+	// scraper();
 
 
-   // Burger Menu
+   	// Burger Menu
 	var burgerMenu = function() {
 
 		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
@@ -274,4 +296,3 @@
 
 
 })(jQuery);
-

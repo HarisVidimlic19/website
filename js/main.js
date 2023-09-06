@@ -41,197 +41,164 @@ AOS.init({
 	$.Scrollax();
 
 	// Scraper for Phys.org
-	var scraper = async function () {
-		const url = 'https://phys.org/physics-news/sort/popular/1w/';
-		// const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-		const proxyUrl = 'https://proxy-server-gspl.onrender.com/'
-		const response = await fetch(proxyUrl + url);
-		const htmlString = await response.text();
-		const parser = new DOMParser();
-		const doc = parser.parseFromString(htmlString, 'text/html');
-		const container = doc.querySelector('.sorted-news-list');
+	// var scraper = async function () {
+	// 	const url = 'https://phys.org/physics-news/sort/popular/1w/';
+	// 	// const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+	// 	const proxyUrl = 'https://proxy-server-gspl.onrender.com/'
+	// 	const response = await fetch(proxyUrl + url);
+	// 	const htmlString = await response.text();
+	// 	const parser = new DOMParser();
+	// 	const doc = parser.parseFromString(htmlString, 'text/html');
+	// 	const container = doc.querySelector('.sorted-news-list');
 
-		$("#sidebar").html(container);
-		console.log("Phys.org Scraped");
-		console.log(container);
+	// 	$("#sidebar").html(container);
+	// 	console.log("Phys.org Scraped");
+	// 	console.log(container);
 
-		// var html = '';
-		// $.each(data, function(index, value) {
-		// 	html += '<div>' + value + '</div>';
-		// });
-		// $('#sidebar').html(html);
-	};
+	// 	// var html = '';
+	// 	// $.each(data, function(index, value) {
+	// 	// 	html += '<div>' + value + '</div>';
+	// 	// });
+	// 	// $('#sidebar').html(html);
+	// };
 	// scraper();
 
+	var scraper = async function () {
+		// $.GET('./data/article.txt', function (data) {
+		// 	$("#sidebar").html(data);
+		// });
+		// console.log("Phys.org Scraped");
+		$("#sidebar").load("./data/output.html");
+	};
+	scraper();
 
-	$.getJSON('./data/data.json', function(data) {
+	// Creating 2D Solar System (Real-Time Snapshot)
+	$.getJSON('./data/data.json', function (data) {
 
-		const canvas = document.getElementById('solarSystem');
-		const context = canvas.getContext('2d');
+		// Find the SVG element/container
+		const svg = document.getElementById('solarSystemSVG');
 
-		// Given the canvas size, a scale factor, and the position of the center (Sun)
-		const scaleFactor = 12; // Adjust this to your desired scale
-		const centerCanvasX = canvas.width / 2;
-		const centerCanvasY = canvas.height / 2;
-		context.translate(centerCanvasX, centerCanvasY);
+		// Find center and create a scale factor
+		const centerCanvasX = svg.width.baseVal.value / 2;
+		const centerCanvasY = svg.height.baseVal.value / 2;
+		var scaleFactor = 16;
 
+		// Load in Planetary Data
+		jQuery.each(data, function (i, val) {
 
-		jQuery.each(data, function(i, val) {
-			if (i=="earth"){
+			// Change color and scale based on planet
+			if (i == "earth") {
 				//Earth
 				var scale = 1;
 				var color = '#417B38'
-				var a = 1.000;
-				var e = 0.0167;
-			}else if (i=="jupiter"){
+			} else if (i == "jupiter") {
 				//Jupiter
 				var scale = 11;
 				var color = '#C1844D'
-				var a = 5.2030;
-				var e = 0.0484;
-			}else if (i=="mars"){
+			} else if (i == "mars") {
 				//Mars
 				var scale = 0.5;
 				var color = '#F97A05'
-				var a = 1.5236;
-				var e = 0.0934;
-			}else if (i=="mercury"){
+			} else if (i == "mercury") {
 				//Mercury
 				var scale = 0.33;
 				var color = 'red';
-				var a = 0.38710;
-				var e = 0.2056;
-			}else if (i=="neptune"){
+			} else if (i == "neptune") {
 				//Neptune
 				var scale = 3.7;
 				var color = '#537CFE'
-				var a =  30.287;
-				var e = 0.0086;
-			}else if (i=="saturn"){
+			} else if (i == "saturn") {
 				//Saturn
 				var scale = 9;
 				var color = '#7B7869'
-				var a = 9.5710;
-				var e = 0.0556;
-			}else if (i=="uranus"){
+			} else if (i == "uranus") {
 				//Uranus
 				var scale = 4;
 				var color = '#D3F9FA'
-				var a = 19.2970;
-				var e = 0.0472;
-			}else{
+			} else {
 				//Venus
 				var scale = 0.95;
 				var color = '#FDBF01'
-				var a = 0.72334;
-				var e = 0.0068;
 			}
-		
-			// // Calculate q and Q
-			// var q = a*(1-e); // perihelion distance
-			// var Q = a*(1+e); // aphelion distance
 
-			// var center = (Q+q)/2; // center of the ellipse
-
-			// // Calculate b
-			// var b = Math.sqrt(2*a);
-
-
-			var t = Number(val['JD']);
+			// Extract data
+			// var t = Number(val['JD']);
 			var ec = Number(val['e']);
-			var QR = Number(val['QR']);
-			var IN = Number(val['IN'])*Math.PI/180;
-			var OM = Number(val['OM'])*Math.PI/180;
-			var W = Number(val['W'])*Math.PI/180;
-			var Tp = Number(val['Tp']);
-			var N = Number(val['N'])*Math.PI/180;
-			var MA = Number(val['MA'])*Math.PI/180;
-			var TA = Number(val['TA'])*Math.PI/180;
+			// var QR = Number(val['QR']);
+			var IN = Number(val['IN']) * Math.PI / 180;
+			var OM = Number(val['OM']) * Math.PI / 180;
+			var W = Number(val['W']) * Math.PI / 180;
+			// var Tp = Number(val['Tp']);
+			// var N = Number(val['N']) * Math.PI / 180;
+			var MA = Number(val['MA']) * Math.PI / 180;
+			// var TA = Number(val['TA']) * Math.PI / 180;
 			var A = Number(val['A']);
-			var AD = Number(val['AD']);
-			var PR = Number(val['PR']);
+			// var AD = Number(val['AD']);
+			// var PR = Number(val['PR']);
+			// var d = t - 2451543.5;
 
-			var M = (N * (t - Tp)) % (2*Math.PI);
-
+			// Calculate orbital elements
+			var M = MA;
 			var E0 = M + ec * Math.sin(M) * (1 + ec * Math.cos(M));
 			var E = M;
+
+			// Iterate to find E
 			while (Math.abs(E - E0) > 0.0005) {
-				E = E0 - ( E0 - ec * Math.sin(E0) - M ) / ( 1 - ec * Math.cos(E0) )
+				E = E0 - (E0 - ec * Math.sin(E0) - M) / (1 - ec * Math.cos(E0))
 				E0 = E;
 			}
 
-			var v = 2*Math.atan2(Math.sqrt(1+ec)*Math.sin(E/2),Math.sqrt(1-ec)*Math.cos(E/2));
-			var r = A*(1-ec*Math.cos(E));
+			// Calculate true anomaly and distance
+			var v = 2 * Math.atan2(Math.sqrt(1 + ec) * Math.sin(E / 2), Math.sqrt(1 - ec) * Math.cos(E / 2));
+			var r = A * (1 - ec * Math.cos(E));
 
-			var x = r * (Math.cos(v+W)*Math.cos(OM) - Math.sin(v+W)*Math.cos(IN)*Math.sin(OM));
-			var y = r * (Math.cos(v+W)*Math.sin(OM) + Math.sin(v+W)*Math.cos(IN)*Math.cos(OM));
+			// Convert to Cartesian coordinates
+			var x = r * (Math.cos(v + W) * Math.cos(OM) - Math.sin(v + W) * Math.cos(IN) * Math.sin(OM));
+			var y = r * (Math.cos(v + W) * Math.sin(OM) + Math.sin(v + W) * Math.cos(IN) * Math.cos(OM));
+			// var z = r * (Math.sin(v + W) * Math.sin(IN))
 
-			// // Extract coordinates
-			var X = x*scaleFactor //+ centerCanvasX;
-			var Y = y*-1*scaleFactor //+ centerCanvasY;
+			// Extract coordinates
+			var X = -x * scaleFactor + centerCanvasX;
+			var Y = -y * scaleFactor + centerCanvasY;
 
-			// Draw each planet
-			context.beginPath();
-			context.arc(X, Y, scale*2, 0, 2 * Math.PI);
-			context.fillStyle = color;
-			context.fill();
-			context.closePath();
+			// Find axes of ellipse
+			const semimajorAxis = A * scaleFactor;
+			const semiminorAxis = Math.sqrt((semimajorAxis * semimajorAxis) * (1 - ec * ec));
 
-			// var svgString = `<svg xmlns="http://www.w3.org/2000/svg" height="150" width="500">
-			// <ellipse cx="240" cy="100" rx="220" ry="30" style="fill:red" />
-			// <ellipse cx="220" cy="70" rx="190" ry="20" style="fill:lime" />
-			// <ellipse cx="210" cy="45" rx="170" ry="15" style="fill:yellow" />
-			// </svg>`;
-			// var img = new Image();
-			// img.width = 500;
-			// img.height = 150;
-			// img.addEventListener("load", e => {
-			// ctx.drawImage(e.target, 0, 0);
-			// });
-			// img.src = `data:image/svg+xml,${svgString}`;
+			// Calculate distance between foci points in pixels for center
+			const c = A * ec * scaleFactor;
+			const fociX = c * Math.sin(W);
+			const fociY = c * Math.cos(W)
 
-			// Draw orbit
-			context.save();
+			// Draw each planet as a SVG circle
+			var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+			circle.setAttribute("cx", X);
+			circle.setAttribute("cy", Y);
+			circle.setAttribute("r", scale * 3);
+			circle.setAttribute("stroke", "none");
+			circle.setAttribute("fill", color);
+			svg.appendChild(circle);
 
-			// Rotate the ellipse
-			// const ellipseAngleInRadians = (OM + W)
-			// context.rotate(ellipseAngleInRadians);
+			// Create a path element with the SVG namespace
+			var ellipse = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+			ellipse.setAttribute("cx", centerCanvasX - fociX/2);
+			ellipse.setAttribute("cy", centerCanvasY + fociY/2);
+			ellipse.setAttribute("rx", semimajorAxis);
+			ellipse.setAttribute("ry", semiminorAxis);
+			ellipse.setAttribute("fill", "none");
+			ellipse.setAttribute("stroke", color);
+			ellipse.setAttribute("stroke-width", "1");
+			svg.appendChild(ellipse);
 
-			// Scale the ellipse to fit the canvas
-			const majorAxisInPixels = 2 * A * scaleFactor;
-			const minorAxisInPixels = A * Math.sqrt(1 - ec^2)* scaleFactor;
-			const scaleX = majorAxisInPixels / 2; // Half the major axis length
-			const scaleY = minorAxisInPixels / 2; // Half the minor axis length
+		});
 
-			context.beginPath();
-			context.moveTo(scaleX, 0);
-
-			// Approximate the ellipse using four Bézier curves
-			context.bezierCurveTo(scaleX, -scaleY * 0.55, -scaleX, -scaleY * 0.55, -scaleX, 0);
-			context.bezierCurveTo(-scaleX, scaleY * 0.55, scaleX, scaleY * 0.55, scaleX, 0);
-
-			context.closePath();
-			context.restore();
-
-			context.strokeStyle = color;
-			context.stroke();
-			// context.beginPath();
-			// if (i == "venus" || i == "uranus"){
-			// 	context.ellipse(centerCanvasX, centerCanvasY, a*scaleFactor, b*scaleFactor, 0, ec, 2 * Math.PI, false);
-			// }else{
-			// 	context.ellipse(centerCanvasX, centerCanvasY, a*scaleFactor, b*scaleFactor, 0, ec, 2 * Math.PI, true);
-			// }
-			// context.strokeStyle = color;
-			// context.stroke();
-			// context.closePath();
-		  });
-
-		  // Draw Sun
-		  context.beginPath();
-		  context.arc(0, 0, 5, 0, 2 * Math.PI);
-		  context.fillStyle = 'yellow';
-		  context.fill();
-		  context.closePath();
+		// Draw Sun
+		var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		circle.setAttribute("cx", centerCanvasX);
+		circle.setAttribute("cy", centerCanvasY);
+		circle.setAttribute("r", 5);
+		circle.setAttribute("fill", "yellow");
+		svg.appendChild(circle);
 
 	});
 

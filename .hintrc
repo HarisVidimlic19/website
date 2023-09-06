@@ -15,6 +15,7 @@
       {
         "aria-progressbar-name": "off"
       }
-    ]
+    ],
+    "compat-api/css": "off"
   }
 }

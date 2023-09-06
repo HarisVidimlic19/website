@@ -14001,13 +14001,11 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 svg {
-  overflow: hidden;
+  /* overflow: visible; */
   /* vertical-align: middle; */
   /* width: 100%; */
   display: block;
   margin: auto;
-  /* stroke-width: 1; */
-  /* stroke: currentColor; */
   fill: currentColor;
   pointer-events: none;
   -webkit-transform: translate(0);
@@ -14042,9 +14040,12 @@ figure{
     font-size: .875rem
   }
   svg{
-    max-width: 100%;
-    height: auto;
-    flex-wrap: nowrap;
+    overflow: visible;
+    display: block;
+    margin: auto;
+  }
+  .snapshot h3{
+    position: absolute;
   }
 }
 

@@ -1,39 +1,27 @@
 {
-  "name": "website",
+  "name": "haris-vidimlic-portfolio",
   "version": "1.0.0",
-  "description": "My personal website to showcase myself and my portfolio",
-  "main": "index.html",
+  "description": "A portfolio website to house all of my past experiences and showcase my skills",
+  "source": "./src/index.html",
+  "repository": "https://github.com/HarisVidimlic19/website.git",
+  "author": "HarisVidimlic19 <hvidimlic1234@hotmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "live-server --browser=firefox && nodemon js/scrape.js",
-    "build": "parcel build index.html --no-minify --out-dir dist --public-url ./",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:verbose": "jest --verbose",
-    "test:debug": "jest --debug"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HarisVidimlic19/website.git#main"
-  },
-  "author": "Haris Vidimlic",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/HarisVidimlic19/website/issues"
-  },
-  "homepage": "https://github.com/HarisVidimlic19/website/tree/main#readme",
-  "devDependencies": {
-    "cssnano": "^6.0.1"
+    "build": "parcel build ./src/index.html --public-url ./",
+    "start": "parcel"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "axios": "^1.5.0",
+    "aos": "^2.3.4",
     "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
     "jquery": "^3.7.1",
     "moment-timezone": "^0.5.43",
-    "popper": "^1.0.1",
     "popper.js": "^1.16.1",
-    "puppeteer": "^21.1.1",
-    "requirejs": "^2.3.6"
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "cssnano": "^6.0.1",
+    "postcss": "^8.2.15"
   }
 }

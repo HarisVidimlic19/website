@@ -1,0 +1,55 @@
+@font-face {
+  font-family: Flaticon;
+  src: url("Flaticon.1c7975a2.eot");
+  src: url("Flaticon.1c7975a2.eot#iefix") format("embedded-opentype"), url("Flaticon.fdf8d11c.woff") format("woff"), url("Flaticon.a68a29c3.ttf") format("truetype"), url("Flaticon.1c2bc107.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-device-pixel-ratio >= 0) {
+  @font-face {
+    font-family: Flaticon;
+    src: url("Flaticon.1c2bc107.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Flaticon;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.flaticon-ideas:before {
+  content: "";
+}
+
+.flaticon-flasks:before {
+  content: "";
+}
+
+.flaticon-analysis:before {
+  content: "";
+}
+
+.flaticon-ux-design:before {
+  content: "";
+}
+
+.flaticon-web-design:before {
+  content: "";
+}
+
+.flaticon-idea:before {
+  content: "";
+}
+
+.flaticon-innovation:before {
+  content: "";
+}
+
+/*# sourceMappingURL=index.f5d8de30.css.map */

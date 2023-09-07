@@ -266,10 +266,6 @@ AOS.init({
 		console.log('show');
 	});
 
-	// window.addEventListener('load', () => {
-	// 	let model = new SolarSystemModel();
-	// }, false);
-
 	// scroll
 	var scrollWindow = function () {
 		$(window).scroll(function () {

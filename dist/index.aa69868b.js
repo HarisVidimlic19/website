@@ -214,9 +214,6 @@ AOS.init({
     $("#dropdown04").on("show.bs.dropdown", function() {
         console.log("show");
     });
-    // window.addEventListener('load', () => {
-    // 	let model = new SolarSystemModel();
-    // }, false);
     // scroll
     var scrollWindow = function() {
         $(window).scroll(function() {

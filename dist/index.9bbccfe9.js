@@ -871,7 +871,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     };
     var v = document.head || document.getElementsByTagName("head")[0], w = document.createElement("style");
     w.type = "text/css";
-    w.styleSheet ? w.styleSheet.cssText = ".scrollax-performance, .scrollax-performance *, .scrollax-performance *:before, .scrollax-performance *:after { pointer-events: none !important; -webkit-animation-play-state: paused !important; animation-play-state: paused !important; };" : w.appendChild(document.createTextNode(".scrollax-performance, .scrollax-performance *, .scrollax-performance *:before, .scrollax-performance *:after { pointer-events: none !important; -webkit-animation-play-state: paused !important; animation-play-state: paused !important; };"));
+    w.styleSheet ? w.styleSheet.cssText = ".scrollax-performance, .scrollax-performance *, .    -performance *:before, .scrollax-performance *:after { pointer-events: none !important; -webkit-animation-play-state: paused !important; animation-play-state: paused !important; };" : w.appendChild(document.createTextNode(".scrollax-performance, .scrollax-performance *, .scrollax-performance *:before, .scrollax-performance *:after { pointer-events: none !important; -webkit-animation-play-state: paused !important; animation-play-state: paused !important; };"));
     v.appendChild(w);
     return q;
 });

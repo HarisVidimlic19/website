@@ -1,3 +1,10 @@
+function copyRight() {
+	var date = new Date().getFullYear();
+	var s = 'Copyright &copy; ' + date + ' All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>'
+	document.getElementById("copyright").innerHTML = s;
+}
+copyRight();
+
 AOS.init({
 	duration: 800,
 	easing: 'slide'
@@ -401,9 +408,5 @@ AOS.init({
 
 		fixedContentPos: false
 	});
-
-
-
-
 
 })(jQuery);

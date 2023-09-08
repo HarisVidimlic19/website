@@ -12,8 +12,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: node js/scrape.js
-      - run: node js/horizons.js
+      - run: node ../src/js/scrape.js
+      - run: node ../src/js/horizons.js
   deploy:
       runs-on: ubuntu-latest
       permissions: # Required if github_deployment is set to true.

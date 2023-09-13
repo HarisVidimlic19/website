@@ -248,6 +248,10 @@ button:focus {
   outline: 5px auto -webkit-focus-ring-color;
 }
 
+.bckg-text{
+  color: #fff;
+}
+
 input,
 button,
 select,
@@ -4938,6 +4942,10 @@ input[type="button"].btn-block {
   content: "";
   background: no-repeat center center;
   background-size: 100% 100%;
+}
+
+.oi{
+  color: #fff;
 }
 
 @media (max-width: 575.98px) {
@@ -12093,6 +12101,11 @@ h5,
   opacity: .4;
 }
 
+.owl-carousel .owl-stage, .owl-carousel.owl-drag .owl-item{
+  -ms-touch-action: auto;
+  touch-action: auto;
+}
+
 .owl-carousel .owl-item.active {
   opacity: 1;
 }
@@ -14002,18 +14015,29 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   position: relative
 }
 
+.parent{
+  height: 65vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.snapshot{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 svg {
-  /* overflow: visible; */
-  /* vertical-align: middle; */
-  /* width: 100%; */
-  display: block;
-  margin: auto;
+  width: 100%;
+  height: 100%;
   fill: currentColor;
   pointer-events: none;
   -webkit-transform: translate(0);
   -ms-transform: translate(0);
   transform: translate(0);
-  text-align: center
+
 }
 
 img {
@@ -14040,14 +14064,6 @@ figure{
 @media(max-width: 1199px){
   .sorted-article-content {
     font-size: .875rem
-  }
-  svg{
-    overflow: visible;
-    display: block;
-    margin: auto;
-  }
-  .snapshot h3{
-    position: absolute;
   }
 }
 

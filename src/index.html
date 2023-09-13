@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-	<title>Haris Vidimlic - BSc in Physics</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,6 +22,7 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="shortcut icon" href="#">
+	<title>Haris Vidimlic - BSc in Physics</title>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -67,7 +67,7 @@
 								<span class="subheading">Hello!</span>
 								<h1 class="mb-4 mt-3">I'm <span>Haris Vidimlic</span></h1>
 								<h2 class="mb-4">A Graduated Physicist and Aspiring Software Developer</h2>
-								<p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#"
+								<p><a href="#contact-section" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#projects-section"
 										class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
 							</div>
 						</div>
@@ -89,7 +89,7 @@
 							<div class="text">
 								<span class="subheading">Hello!</span>
 								<h1 class="mb-4 mt-3">I'm a <span>programmer</span> based in Ontario</h1>
-								<p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#"
+								<p><a href="#contact-section" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#projects-section"
 										class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
 							</div>
 						</div>
@@ -139,7 +139,8 @@
 								<span class="number" data-number="15"></span>
 								<span>Projects complete</span>
 							</p>
-							<p><a href="./data/Haris_Vidimlic_Resume.pdf" class="btn btn-primary py-3 px-3" download>Download
+							<p><a href="./data/Haris_Vidimlic_CV.pdf" class="btn btn-primary py-3 px-3"
+									download>Download
 									CV</a></p>
 						</div>
 					</div>
@@ -165,9 +166,26 @@
 					</div>
 				</div>
 			</div>
-			<div class="snapshot justify-content-center d-flex">
-				<h3>Real-Time 2D Solar System Snapshot</h3>
-				<svg width="1422" height="800" xmlns="http://www.w3.org/2000/svg" id="solarSystemSVG"></svg>
+			<div class="row d-flex">
+				<div class="col-md-4">
+					<h3>Real-Time 2D Solar System</h3>
+					<p>
+						This is a real-time snapshot of the Solar System showcasing the major celestial bodies.
+						Their position from the Sun depend on the day of viewing. The data is taken from the NASA
+						Horizons
+						System. The sizes of the planets (excluding the Sun) and distances from the Sun are accurate
+						but scaled
+						down by a factor of 10<sup>8</sup> for visualization purposes. The orbits of the planets are
+						also
+						accurate given their orbital elements and scaled down by the same distance factor. The data
+						is updated daily.
+					</p>
+				</div>
+				<div class="parent col-md-8">
+					<div class="snapshot">
+						<svg class="" xmlns="http://www.w3.org/2000/svg" id="solarSystemSVG"></svg>
+					</div>
+				</div>
 			</div>
 			<div id="spacer"></div>
 		</div>
@@ -262,7 +280,8 @@
 			</div>
 			<div class="row justify-content-center mt-5" id="CV">
 				<div class="col-md-6 text-center ftco-animate">
-					<p><a href="./data/Haris_Vidimlic_Resume.pdf" class="btn btn-primary py-4 px-5" download>Download CV</a>
+					<p><a href="./data/Haris_Vidimlic_CV.pdf" class="btn btn-primary py-4 px-5" download>Download
+							CV</a>
 					</p>
 				</div>
 			</div>
@@ -564,9 +583,9 @@
 			<div class="row justify-content-center">
 				<div class="col-md-7 ftco-animate text-center">
 					<h2>I'm <span>Available</span> for freelancing</h2>
-					<p>Send me an email by clicking the button below!</p>
-					<p class="mb-0"><a href="mailto:hvidimlic1234@hotmail.com" class="btn btn-primary py-3 px-5">Hire
-							me</a></p>
+					<p class="bckg-text">Send me an email by viewing the contact information below!</p>
+					<!-- <p class="mb-0"><a href="#contact-section" class="btn btn-primary py-3 px-5">Hire
+							me</a></p> -->
 				</div>
 			</div>
 		</div>
@@ -616,14 +635,14 @@
 							<span class="icon-globe"></span>
 						</div>
 						<h3 class="mb-4">Website</h3>
-						<p><a href="#">https://portfolio-haris-vidimlic.onrender.com</a></p>
+						<p><a href="#">https://harisvidimlic19.github.io</a></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="row no-gutters block-9" id="contact-form">
 				<div class="col-md-6 order-md-last d-flex">
-					<form action="mailto:haris.vidimlic@alumni.ubc.ca" method="get" enctype="text/plain"
+					<form action="&#109;&#097;&#105;&#108;&#116;&#111;:&#104;&#097;&#114;&#105;&#115;&#046;&#118;&#105;&#100;&#105;&#109;&#108;&#105;&#099;&#064;&#097;&#108;&#117;&#109;&#110;&#105;&#046;&#117;&#098;&#099;&#046;&#099;&#097;" method="post" enctype="application/x-www-form-urlencoded"
 						class="bg-light p-4 p-md-5 contact-form">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Your Name">
@@ -727,14 +746,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center">
-
-					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;
-						<script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-						is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank" rel="noopener">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
+					<p id="copyright"></p>
 				</div>
 			</div>
 		</div>
@@ -747,22 +759,7 @@
 				stroke="#F96D00" />
 		</svg></div>
 
-	<script src="./js/jquery-3.7.1.min.js"></script>
-	<script src="./js/jquery-migrate-3.4.0.min.js" type="module"></script>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js"></script> -->
-	<script src="./js/jquery.easing.min.js" type="module"></script>
-	<script src="./js/jquery.waypoints.min.js"></script>
-	<script src="./js/jquery.stellar.min.js"></script>
-	<script src="./js/jquery.magnific-popup.min.js" type="module"></script>
-	<script src="./js/jquery.animateNumber.min.js"></script>
-	<script src="./js/popper.min.js"></script>
-	<script src="./js/bootstrap.min.js" type="module"></script>
-	<script src="./js/owl.carousel.min.js"></script>
-	<script src="./js/aos.js"></script>
-	<script src="./js/scrollax.min.js" type="module"></script>
-
-	<script src="./js/main.js"></script>
+	<script src="../dist/bundle.js"></script>
 
 </body>
 

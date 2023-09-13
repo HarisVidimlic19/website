@@ -1,3 +1,4 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var webpack = require('webpack');
 var environment = process.env.NODE_ENV || 'development';
 var dev = environment !== 'production';
@@ -18,8 +19,38 @@ module.exports = {
             'window.$': 'jquery',
             'jQuery': 'jquery',
             'popper.js': 'popper'
-        })
+        }),
+        new MiniCssExtractPlugin(),
     ],
+    module: {
+        rules: [
+            {
+                test: /\.(css)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: () => [
+                                    require('autoprefixer')
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
+            }
+        ]
+    }
 
 
 };

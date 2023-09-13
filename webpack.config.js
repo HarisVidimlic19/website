@@ -9,9 +9,6 @@ module.exports = {
         path: __dirname + "/dist",
         filename: 'bundle.js'
     },
-    module: {
-        noParse: /jquery-migrate-3.0.1.min.js/,
-    },
     plugins: [
         new webpack.ProvidePlugin({
             __DEV__: dev,

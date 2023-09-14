@@ -4,6 +4,15 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import './animate.css';
+@import './aos.css';
+@import './bootstrap.min.css';
+@import './magnific-popup.css';
+@import './open-iconic-bootstrap.min.css';
+@import './owl.carousel.min.css';
+@import './owl.theme.default.min.css';
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+ 
 :root {
   --main-color: #ffbd39;
   /* --main-color: var(--green); */

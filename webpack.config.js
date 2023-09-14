@@ -1,4 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PurgeCssPlugin = require('@fullhuman/postcss-purgecss')
+const glob = require('glob');
 var webpack = require('webpack');
 var environment = process.env.NODE_ENV || 'development';
 var dev = environment !== 'production';
@@ -8,7 +10,12 @@ module.exports = {
     mode: 'development',
     output: {
         path: __dirname + "/dist",
-        filename: 'bundle.js'
+        filename: '[name].js'
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
     },
     plugins: [
         new webpack.ProvidePlugin({
@@ -53,4 +60,11 @@ module.exports = {
     }
 
 
-};
+}
+
+module.exports.plugins.push(
+    new PurgeCssPlugin({
+        paths: glob.sync(__dirname + 'src'+ '/**/*', { nodir: true })
+    })
+);
+

@@ -1,4 +1,5 @@
-var AOS = require('./aos.js');
+const AOS = require('./aos.js');
+
 function copyRight() {
 	var date = new Date().getFullYear();
 	var s = 'Copyright &copy; ' + date + ' All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>'
@@ -277,15 +278,16 @@ AOS.init({
 	});
 
 	var scraper = async function () {
-		$("#sidebar").load("./data/output.html");
+		$("#sidebar").load("../src/data/output.html");
 	};
 	scraper();
 
 	// Creating 2D Solar System (Real-Time Snapshot)
-	$.getJSON('./data/data.json', function (data) {
+	$.getJSON('../src/data/data.json', function (data) {
 
 		// Find the SVG element/container
 		const svg = document.getElementById('solarSystemSVG');
+		// const containerHeight = svg.clientHeight; // Get the container's height
 
 		// Find center and create a scale factor
 		const centerCanvasX = svg.width.baseVal.value / 2;
@@ -331,20 +333,12 @@ AOS.init({
 			}
 
 			// Extract data
-			// var t = Number(val['JD']);
 			var ec = Number(val['e']);
-			// var QR = Number(val['QR']);
 			var IN = Number(val['IN']) * Math.PI / 180;
 			var OM = Number(val['OM']) * Math.PI / 180;
 			var W = Number(val['W']) * Math.PI / 180;
-			// var Tp = Number(val['Tp']);
-			// var N = Number(val['N']) * Math.PI / 180;
 			var MA = Number(val['MA']) * Math.PI / 180;
-			// var TA = Number(val['TA']) * Math.PI / 180;
 			var A = Number(val['A']);
-			// var AD = Number(val['AD']);
-			// var PR = Number(val['PR']);
-			// var d = t - 2451543.5;
 
 			// Calculate orbital elements
 			var M = MA;
@@ -364,7 +358,6 @@ AOS.init({
 			// Convert to Cartesian coordinates
 			var x = r * (Math.cos(v + W) * Math.cos(OM) - Math.sin(v + W) * Math.cos(IN) * Math.sin(OM));
 			var y = r * (Math.cos(v + W) * Math.sin(OM) + Math.sin(v + W) * Math.cos(IN) * Math.cos(OM));
-			// var z = r * (Math.sin(v + W) * Math.sin(IN))
 
 			// Extract coordinates
 			var X = -x * scaleFactor + centerCanvasX;
@@ -379,6 +372,15 @@ AOS.init({
 			const fociX = c * Math.sin(W);
 			const fociY = c * Math.cos(W)
 
+			if (i == "neptune") {
+				return
+			} else if (i == "uranus") {
+				var className = "hide";
+			}
+			else {
+				var className = "show";
+			}
+
 			// Draw each planet as a SVG circle
 			var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 			circle.setAttribute("cx", X);
@@ -386,6 +388,7 @@ AOS.init({
 			circle.setAttribute("r", scale * 3);
 			circle.setAttribute("stroke", "none");
 			circle.setAttribute("fill", color);
+			circle.setAttribute("class", className);
 			svg.appendChild(circle);
 
 			// Create a path element with the SVG namespace
@@ -397,6 +400,7 @@ AOS.init({
 			ellipse.setAttribute("fill", "none");
 			ellipse.setAttribute("stroke", color);
 			ellipse.setAttribute("stroke-width", "1");
+			ellipse.setAttribute("class", className);
 			svg.appendChild(ellipse);
 
 		});

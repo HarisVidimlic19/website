@@ -1,33 +1,21 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PurgeCssPlugin = require('@fullhuman/postcss-purgecss')
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
+const CssMinimizerWebpack = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 const glob = require('glob');
-var webpack = require('webpack');
-var environment = process.env.NODE_ENV || 'development';
-var dev = environment !== 'production';
 
 module.exports = {
     entry: './src/js/app.js',
-    mode: 'development',
+    mode: 'production',
     output: {
         path: __dirname + "/dist",
-        filename: '[name].js'
-    },
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-        },
+        filename: 'bundle.js'
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            __DEV__: dev,
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            'window.$': 'jquery',
-            'jQuery': 'jquery',
-            'popper.js': 'popper'
-        }),
         new MiniCssExtractPlugin(),
+        new PurgeCSSPlugin({
+            paths: glob.sync(`./src/**/*`, { nodir: true }),
+        }),
     ],
     module: {
         rules: [
@@ -57,14 +45,17 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    optimization: {
+        usedExports: true,
+        minimize: true,
+        minimizer: [
+          new TerserPlugin({
+            extractComments: false,
+          }),
+          new CssMinimizerWebpack(),
+        ],
+    },
 
 
 }
-
-module.exports.plugins.push(
-    new PurgeCssPlugin({
-        paths: glob.sync(__dirname + 'src'+ '/**/*', { nodir: true })
-    })
-);
-

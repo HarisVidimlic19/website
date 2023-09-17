@@ -4,15 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-@import './animate.css';
-@import './aos.css';
-@import './bootstrap.min.css';
-@import './magnific-popup.css';
-@import './open-iconic-bootstrap.min.css';
-@import './owl.carousel.min.css';
-@import './owl.theme.default.min.css';
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
- 
+
 :root {
   --main-color: #ffbd39;
   /* --main-color: var(--green); */
@@ -14024,29 +14016,51 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   position: relative
 }
 
-.parent{
-  height: 65vh;
-  position: relative;
+.sidebartext{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.sidebartext ul li {
+  list-style: none;
+}
+
+.sidebartext ul {
+  display: grid;
+  grid-template-rows: repeat(3, min-content);
+  grid-auto-flow: column;
+}
+
+.parent {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 85vh; /* Set a specific height for the container */
+  overflow: hidden; /* Prevent horizontal overflow */
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
-.snapshot{
+svg#solarSystemSVG {
   width: 100%;
   height: 100%;
-  position: absolute;
+  display: block;
 }
 
-svg {
-  width: 100%;
-  height: 100%;
-  fill: currentColor;
-  pointer-events: none;
-  -webkit-transform: translate(0);
-  -ms-transform: translate(0);
-  transform: translate(0);
+/* Styles for inner orbits (visible by default) */
+.show {
+  display: block;
+}
+.hide {
+  display: block;
+}
 
+/* Media query for screens with a maximum width of 768px */
+@media screen and (max-width: 768px) {
+  .hide {
+    display: none;
+  }
 }
 
 img {

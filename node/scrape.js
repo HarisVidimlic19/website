@@ -22,7 +22,7 @@ const fs = require('fs');
     const content = await page.$eval('.sorted-news-list', (div) => div.innerHTML);
 
     // Extract the content of the div container
-    fs.writeFileSync('./data/output.html', content);
+    fs.writeFileSync('./src/data/output.html', content);
 
     console.log('Content extracted and saved to output.html');
 

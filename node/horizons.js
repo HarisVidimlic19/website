@@ -27,7 +27,9 @@ const files = [
     'neptune.txt',
 ];
 
-const dataPath = path.join(__dirname, '..', 'data');
+const dataPath = path.join(__dirname,'..', 'src', 'data');
+console.log(__dirname)
+// const dataPath = "../src/data/"
 
 files.forEach(file => {
     // Loop through the files
@@ -111,7 +113,7 @@ async function processFiles() {
         }
 
         // Write to json file
-        fs.writeFile('./data/horizons.json', JSON.stringify(a, null, 2), (err) => {
+        fs.writeFile('./src/data/horizons.json', JSON.stringify(a, null, 2), (err) => {
             if (err) {
                 console.error(err);
             } else {

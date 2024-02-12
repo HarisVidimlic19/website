@@ -1,25 +1,20 @@
 // Import CSS
-import '../css/animate.css';
-import '../css/aos.css';
-import '../css/bootstrap.min.css';
-import '../css/magnific-popup.css';
-import '../css/open-iconic-bootstrap.min.css';
 import '../css/icomoon.css'
 import '../css/flaticon.css'
-import '../css/owl.carousel.min.css';
-import '../css/owl.theme.default.min.css';
+import '../css/glider.min.css'
 import '../css/style.css'
 
+// Import Images
+// import '../images/about.webp'
+// import '../images/bg_1.webp'
+// import '../images/bg_3.webp'
+// import '../images/project-1.webp'
+// import '../images/project-2.webp'
+// import '../images/project-3.webp'
+// import '../images/project-4.webp'
+// import '../images/project-5.webp'
+// import '../images/project-6.webp'
+
 // Import JS
-window.$ = window.jQuery = require('jquery')
-require('jquery-migrate')
-require('./jquery.easing.1.3.js')
-require('./jquery.stellar.min.js')
-require('./jquery.waypoints.min.js')
-require('./jquery.animateNumber.min.js')
-require('./jquery.magnific-popup.min.js')
-require('./owl.carousel.min.js')
-require('./scrollax.min.js')
-require('./popper.js')
-require('./bootstrap.min.js')
-require('./main.js')
+import './glider.min.js'
+import './main.js'

@@ -276,7 +276,7 @@ function drawCelestialBody(planet, data, centerCanvasX, centerCanvasY) {
   const scaleFactor = 16;
   const { A, ec, coordinates, color, scale, W } = data;
   var X = -coordinates[0] * scaleFactor + centerCanvasX;
-  var Y = -coordinates[1] * scaleFactor + centerCanvasY;
+  var Y = coordinates[1] * scaleFactor + centerCanvasY; // Need non-negative Y for counter-clockwise rotation
 
   if (planet == "neptune") {
     return
